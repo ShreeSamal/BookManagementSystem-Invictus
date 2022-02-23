@@ -6,7 +6,7 @@ const { createPool } = require('mysql');
 // Initialising Express Server
 const app = express();
 // Server Port
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 // Mysql Connection Pool
 const pool = createPool({
    host: 'localhost',
