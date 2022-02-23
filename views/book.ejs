@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+        <script src="https://kit.fontawesome.com/d0c5f1e210.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    <title>Books</title>
+    <style>
+        #filter{
+            background-color: #3C096C;
+            color: #fff;
+            border: none;
+        }
+        .side .input--login{
+            width:700px;
+            padding-left: 5px;
+            text-align : start ;
+            border-radius: 15px;
+            margin-left: 50px;
+            height: 32px;
+        }
+        .nav{
+            background-color: #3C096C;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            padding: 30px 0;
+            width: 100%;
+        }
+        .logo img{
+            margin-left: 20px;
+            width: 250px;
+        }
+        .navContainer li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        
+        .navContainer li::after{
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #C77DFF;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+        
+        .navContainer li:hover::after{
+            width: 100%;
+        }
+        .navContainer{
+            margin-left:10px;
+            margin-right: 20px;
+            display: flex;
+        }
+        
+        .navContainer li{
+            list-style-type: none;
+            padding: 15px;
+        }
+        .navContainer li a{
+            font-size: 17px;
+            text-decoration:none;
+        }
+        
+        .logo{
+            margin-left: 10px;
+        }
+        
+        .input--login{
+            text-align: center;
+            margin: 10px;
+        }
+        #filter{
+            background-color: #3C096C;
+            border:1px solid #fff;
+            border-radius: 3px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <!-- <div class="container"> -->
+            <div class="logo"><img src="https://cdn.discordapp.com/attachments/840220247646273559/944661501883584532/logo_3.2.png" alt=""></div>
+            <div class='side'>
+                <input type="text" placeholder="Search" class="input--login"> 
+            </div>
+            <ul class="navContainer">
+                <li class="navLinks"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li class="navLinks"><a href="home">Home</a></li>
+                <li class="navLinks"><a href="cart">Cart</a></li>
+                <li class="navLinks"><select name="" id="filter">
+                    <option value="">Filter</option>
+                    <option value="">Mathematics</option>
+                        <option value="">Physics</option>
+                        <option value="">Chemistry</option>
+                        <option value="">Java</option>
+                        <option value="">JS</option>
+                        <option value="">Python</option>
+                        <option value="">C++</option>
+                        <option value="">C</option>
+                        <option value="">CNN</option>
+                        <option value="">DBMS</option>
+                        <option value="">PCOM</option>
+                        <option value="">AT</option>
+                        <option value="">COA</option>
+                        <option value="">ED</option>
+                        <option value="">DSA</option>
+                        <option value="">OS</option>
+                </select></li>
+                <li class="navLinks"><a href="contact">ContactUs</a></li>
+            </ul>
+        <!-- </div> -->
+    </header>
+<div class="news-container">
+    <div class="news">
+        <a href="book_des">
+            <% if(books.length>0) { %>
+                <% books.forEach(function(book, index){ %>
+                    <div class="news-box Hover-effect">
+                        <img src="Images/<%- book.product_id %>.jpg" alt="img not found" height="200px" width="386px">
+                        <h4><%- book.name.substring(0,69).concat("...") %></h4>
+                        <p class="contentt"><%- book.description.substring(0,200).replace(/<[^>]+>/g,'')%></p>
+                        <p class="contentt"><%- book.category %></p>
+                        
+                    </div>
+                <% }) %>
+            <% } %>
+        </a>
+    </div>
+</div>
+<footer class="footer">
+    <!-- logo -->
+    <!-- follow us -->
+    <!-- recieve the latest and exclusive overs -->
+    
+        <div class="footer-row">
+            <div class="footer-col-1">
+                <div class="logo"><img src="https://cdn.discordapp.com/attachments/840220247646273559/944661501883584532/logo_3.2.png" alt=""></div>
+            </div>
+            <div class="footer-col-1">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-facebook-square"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-twitter-square"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram-square"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-col-1">
+                <h4>Recieve the Latest and Exclusive Offers by</h4>
+                <div class="button-col-2">
+                    <a href="" class="btn" type="button">Text</a>
+                    <a href="" class="btn" type="button">Email</a>
+                </div>
+            </div>              
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2022-bookstore@gmail.com</p>
+    
+</footer>
+<script src="moment.js"></script>
+<script src="moment-timezone-with-data.js"></script>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

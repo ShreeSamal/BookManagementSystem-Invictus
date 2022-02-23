@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sellers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d0c5f1e210.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (nav bar)--> 
+    <header class="nav">
+        <!-- <div class="container"> -->
+            <div class="logo"><img src="https://cdn.discordapp.com/attachments/840220247646273559/944661501883584532/logo_3.2.png" alt=""></div>
+            <div class='side'>
+                <input type="text" placeholder="Search" class="input--login"> 
+            </div>
+            <ul class="navContainer">
+                <li class="navLinks"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li class="navLinks"><a href="home">Home</a></li>
+                <li class="navLinks"><a href="#">Cart</a></li>
+                <li class="navLinks"><a href="seller">Sell</a></li>
+                <li class="navLinks"><a href="contact">Contact Us</a></li>
+            </ul>
+        <!-- </div> -->
+    </header>
+
+<div class="seller--form">
+        <form action="/seller" method="post">
+            <fieldset>
+                <legend>Seller's Form</legend>
+                <h1>Sell Your Products</h1>
+                <div class="sell1">
+                    Category : <select name="category" id="">
+                        <option value="book">Book</option>
+                        <option value="notes">Notes</option>
+                        <option value="Others">Equipments</option>
+                    </select>
+                </div>
+                <div class="sell1">Name : <br><input type="text" name="name" placeholder="Product Name"></div>
+                <div class="sell1">Original M.R.P. :<br><input type="text" name="mrp" placeholder="Original Price"></div>
+                <div class="sell1">Selling M.R.P. :<br><input type="text" name="price" placeholder="Selling Price"></div>
+                <div class="sell1">Description : <br><input type="text" name="description" placeholder="Product Description"></div>
+                <div class="sell1">
+                    Subject : <select name="subject" id="">
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Java">Java</option>
+                        <option value="JS">JS</option>
+                        <option value="Python">Python</option>
+                        <option value="C++">C++</option>
+                        <option value="C">C</option>
+                        <option value="CNN">CNN</option>
+                        <option value="DBMS">DBMS</option>
+                        <option value="PCOM">PCOM</option>
+                        <option value="AT">AT</option>
+                        <option value="COA">COA</option>
+                        <option value="ED">ED</option>
+                        <option value="DSA">DSA</option>
+                        <option value="OS">OS</option>
+                    </select>
+                </div>
+                <div class="sell1">Condition :<br><input type="text" name="condition" placeholder="Product Condition"></div>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="sell1">Image :<br><input type="file" name="image"><span class="img--requirement">(.jpg or .png)</span></div>
+                    <button class="sell-btn1" type="submit">upload</button>
+                </form>
+                <div class="btnContainer">
+                    <button class= "sell-btn" type="submit">SUBMIT</button>
+                    <button class="sell-btn" onclick="reset()">RESET</button>
+                </div>
+            </fieldset>
+        </form>
+    
+</div>
+    
+    <footer class="footer">
+        
+            <div class="footer-row">
+                <div class="footer-col-1">
+                    <div class="logo"><img src="https://cdn.discordapp.com/attachments/840220247646273559/944661501883584532/logo_3.2.png" alt=""></div>
+                </div>
+                <div class="footer-col-1">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href=""><i class="fa-brands fa-facebook-square"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-twitter-square"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram-square"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-1">
+                    <h4>Recieve the Latest and Exclusive Offers by</h4>
+                    <div class="button-col-2">
+                        <a href="" class="btn" type="button">Text</a>
+                        <a href="" class="btn" type="button">Email</a>
+                    </div>
+                </div>              
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2022-bookstore@gmail.com</p>
+        
+    </footer>
+    <!-- Java Script -->
+    <script>
+        function reset(){
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

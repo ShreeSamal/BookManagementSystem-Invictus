@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT US</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d0c5f1e210.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* update background and color */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        .contact{
+            position: relative;
+            min-height: 100vh;
+            padding: 5opx 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background : url("sp1.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .contact .content
+        {
+            max-width: 800px;
+            text-align: center;
+        }
+        .contact .content h2{
+            font-size: 36px;
+            font-weight: 500;
+            color: black;
+        }
+        .contact .content p{
+            font-weight: 300;
+            color: black;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            padding: 33px;
+            margin: 10px;
+        }
+        .container .contactinfo{
+            width: 40%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        .container .contactinfo .box{
+            position: relative;
+            padding: 20px 0;
+            display: flex;
+        }
+        .container .contactinfo .box .icon{
+            min-width: 60px;
+            height: 60px;
+            background: #E0AAFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .container .contactinfo .box .text{
+            display: flex;
+            margin-left: 20px;
+            font-size: 16px;
+            flex-direction: column;
+        }
+        .container .contactinfo .box .text h3{
+            color: #240046;
+        }
+        .contactform{
+            width: 40%;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+            color: #000;
+            
+        }
+        .contactform h2{
+            font-size: 30px;
+            color: #333;
+            font-weight: 500;
+        }
+        .contactform .inputbox{
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .contactform .inputbox input,
+        .contactform .inputbox textarea
+        {
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 4px solid #333;
+            outline: none;
+        }
+        .contactform .inputbox span{
+            position: absolute;
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            color: #666;
+        }
+        .contactform .inputbox input:focus ~ span,
+        .contactform .inputbox input:valid ~ span,
+        .contactform .inputbox textarea:focus ~ span,
+        .contactform .inputbox textarea:valid ~ span
+        {
+            color: #3C096C;
+            font-size: 12px;
+            transform: translateY(-20px);
+        }
+        .contactform .inputbox input[type="button"]
+        {
+            width: 100px;
+            /* background: #00bcd4; */
+            background: #240046;
+            color: #333;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+        }
+        .content .inputbox input[type="submit"]
+        {
+            width: 150px;
+            background: #240046;
+            color: #333;
+            cursor: pointer;
+            border: none;
+            padding: 10px;
+        }
+
+        .overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 5;
+      background-color: black;
+      opacity: 0.7;
+    }
+
+    .otpver {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-evenly;
+      font-size: 2.5rem;
+      color: rgb(14, 14, 136);
+      top: 35%;
+      left: 35%;
+      height: 16rem;
+      width: 30rem;
+      border-radius: 20px;
+      background-color: #fff;
+      z-index: 10;
+
+    }
+
+    #img {
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 7rem;
+      width: 7rem;
+    }
+
+    .display {
+      display: none;
+    }
+    </style>
+</head>
+<body>
+    <header class="nav">
+        <!-- <div class="container"> -->
+            <div class="logo"><img src="https://cdn.discordapp.com/attachments/840220247646273559/944661501883584532/logo_3.2.png" alt=""></div>
+            <div class='side'>
+                <input type="text" placeholder="Search" class="input--login"> 
+            </div>
+            <ul class="navContainer">
+                <li class="navLinks"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li class="navLinks"><a href="home">Home</a></li>
+                <li class="navLinks"><a href="cart">Cart</a></li>
+                <li class="navLinks"><a href="seller">Sell</a></li>
+                <li class="navLinks"><a href="contact">Contact Us</a></li>
+            </ul>
+        <!-- </div> -->
+    </header>
+    <div class="overlay display"></div>
+    <div class="otpver display"><span id="msg">Query Sent</span><img id="img"
+        src="https://uxwing.com/wp-content/themes/uxwing/download/48-checkmark-cross/success-green-check-mark.png"></div>
+    <section class="contact">
+        <div class="content">
+            <h2>CONTACT US</h2>
+            <p>Have Some Questions ?? Get In Touch With Us</p>
+        </div>
+        <div class="container">
+            <div class="contactinfo">
+                <div class="box">
+                    <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>ADDRESS</h3>
+                        <p>Lorem ipsum dolor sit. <br>Lorem ipsum dolor sit. <br>Lorem ipsum dolor sit.</p>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>EMAIL</h3>
+                        <p>Loremipsumdolorsit@gmail.com</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                    <div class="text">
+                        <h3>PHONE</h3>
+                        <p>1234567890</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactform">
+                    <h2>Send A Query</h2>
+                    <form method="post">
+                    <div class="inputbox">
+                        <input type="text" required="required" id="name">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="number" required="required" id="no">
+                        <span>Mobile No(Whatsapp NO. Preferred)</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" required="required" id="mail">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputbox">
+                        <textarea required="required" id="message"></textarea>
+                        <span>Type Your Query Here....</span>
+                    </div>
+                    <div class="inputbox" id="submit">
+                        <input type="button" value="Send" style="border-radius: 10px;color: azure;" onclick="sendEmail()"/>
+                    </div>
+                    </form>
+            </div>
+        </div>
+        <div class="content">
+            <div class="inputbox" id="joinusnow">
+                <input type="submit" value="Join Us Now" onclick="redirect()" style="color: azure;border-radius: 10px;">
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        
+        <div class="footer-row">
+            <div class="footer-col-1">
+                <div class="logo"><img src="https://cdn.discordapp.com/attachments/840220247646273559/944661501883584532/logo_3.2.png" alt=""></div>
+            </div>
+            <div class="footer-col-1">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-facebook-square"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-twitter-square"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram-square"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-col-1">
+                <h4>Recieve the Latest and Exclusive Offers by</h4>
+                <div class="button-col-2">
+                    <a href="" class="btn" type="button">Text</a>
+                    <a href="" class="btn" type="button">Email</a>
+                </div>
+            </div>              
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2022-bookstore@gmail.com</p>
+    
+</footer>
+    <!-- smtpjs script -->
+    <script src=
+	"https://smtpjs.com/v3/smtp.js">
+    </script>
+
+    <script type="text/javascript">
+        const overlay = document.querySelector('.overlay');
+        const otpver = document.querySelector('.otpver');
+
+        //function to send email
+        function sendEmail() {
+            var name = document.getElementById('name');
+            var phone = document.getElementById('no');
+            var msg = document.getElementById('message');
+            var mail = document.getElementById('mail');
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "shrisam955@gmail.com",
+                Password: "#shrimas05",
+                To: 'shree.samal1502@gmail.com',
+                From: 'shrisam955@gmail.com',
+                Subject: "Query From A User",
+                Body: "Name : " + name.value + "<br>Mobile Number : " + phone.value + "<br>Email : " + mail.value + "<br>Query:<br>"+msg.value
+            })
+                .then(function (message) {
+                // window.location.reload();
+                overlay.classList.toggle('display');
+                otpver.classList.toggle('display');
+                })
+            }
+            //Event to click on the screen and exit from the otp verification pop up.
+            overlay.addEventListener('click',function(){
+            overlay.classList.toggle('display');
+            otpver.classList.toggle('display');
+            window.location.reload();
+            })
+
+            //Event to exit the pop up by pressing escape key.
+            document.addEventListener('keydown',function(e){
+            if(e.key==='Escape'){
+                overlay.classList.toggle('display');
+                otpver.classList.toggle('display');
+                window.location.reload();
+            }
+            })
+    </script>
+</body>
+</html>
