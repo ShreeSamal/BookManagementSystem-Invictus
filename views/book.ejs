@@ -125,14 +125,13 @@
 <div class="news-container">
     <div class="news">
         <a href="book_des">
-            <% if(books.length>0) { %>
-                <% books.forEach(function(book, index){ %>
+            <% if (books.length > 0) { %>
+                <% books.forEach((book, index) => { %>
                     <div class="news-box Hover-effect">
                         <img src="Images/<%- book.product_id %>.jpg" alt="img not found" height="200px" width="386px">
                         <h4><%- book.name.substring(0,69).concat("...") %></h4>
                         <p class="contentt"><%- book.description.substring(0,200).replace(/<[^>]+>/g,'')%></p>
                         <p class="contentt"><%- book.category %></p>
-                        
                     </div>
                 <% }) %>
             <% } %>

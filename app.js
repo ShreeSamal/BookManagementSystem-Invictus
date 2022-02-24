@@ -1,25 +1,21 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const { createPool } = require('mysql');
+const mysql = require('mysql');
+require('dotenv').config();
 
 // Initialising Express Server
 const app = express();
-// Server Port
 const PORT = process.env.PORT || 3000;
-// Mysql Connection Pool
-const pool = createPool({
-   host: 'localhost',
-   user: 'root',
-   password: '',
-   database: 'book_management_system'
+const pool = mysql.createConnection({
+   host: process.env.DATABASE_HOST,
+   user: process.env.DATABASE_USER,
+   password: process.env.DATABASE_PSWD,
+   database: process.env.DATABASE_NAME
 });
 
-// Register View Engine
 app.set('view engine', 'ejs');
-// To access static files e.g (Stylesheet|Images|Js)
 app.use(express.static('public'));
-// Encode the request Body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -33,7 +29,6 @@ app.get('/contact', (req, res) => {
    res.render('contact');
 });
 
-//login
 app.get('/login', (req, res) => {
    res.render('login');
 });
@@ -67,7 +62,7 @@ app.post('/login', (req, res) => {
          [req.body.mail],
          (err, result, field) => {
             const check = JSON.parse(JSON.stringify(result));
-            console.log(check);
+            console.log(result);
             if (err) {
                throw err;
             }
@@ -79,7 +74,7 @@ app.post('/login', (req, res) => {
                   if (err) {
                      throw err;
                   }
-                  console.log('insert successful');
+                  console.log(result);
                   res.redirect('/home');
                })
             } else {
@@ -90,7 +85,6 @@ app.post('/login', (req, res) => {
    }
 })
 
-//book
 app.get('/book', (req, res) => {
    console.log(user);
    pool.query(
@@ -129,19 +123,23 @@ app.get('/book', (req, res) => {
 app.get('/cart', (req, res) => {
    //seller->home
    res.render('cart');
-})
+});
+
 app.get('/book_des', (req, res) => {
    //seller->home
-   res.render('book_des'); //seller->home
-})
+   res.render('book_des');
+});
+
 app.get('/home', (req, res) => {
    //seller->home
-   res.render('home'); //seller->home
-})
+   res.render('home');
+});
+
 app.get('/seller', (req, res) => {
    //seller->home
-   res.render('seller'); //seller->home
-})
+   res.render('seller');
+});
+
 app.post('/seller', (req, res) => {
    const data = req.body;
    console.log(data);
@@ -200,5 +198,9 @@ app.post('/seller', (req, res) => {
 
 // Start Express Server on Port :3000
 app.listen(PORT, () => {
-   console.log(`[SERVER] ✓ started at http://localhost:${PORT}/`);
+   pool.connect((error) => console.log(error ? error : '[ MYSQL ]  ✓ connected to the DB server'));
+   console.log(`[ SERVER ] ✓ started at http://localhost:${PORT}/`);
 });
+
+// Process Event Handler(s)
+process.on('exit', () => pool.end());
